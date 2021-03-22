@@ -1,6 +1,7 @@
 package com.example.demo.sec.controller;
 
 import java.util.HashMap;
+
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,7 +20,7 @@ public class AuthController {
 		
 		Map<String, Object> map = new HashMap<>();
 		
-		map.put("message", "SUCCESS");
+		map.put("data", "SUCCESS");
 		
 		return map;
 	}

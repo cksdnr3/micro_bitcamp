@@ -4,11 +4,12 @@ import axios from 'axios';
 
 const SignUp = () => {
 
-    const insertMany = () => {
+    const insertMany = (e) => {
+        e.preventDefault();
         alert('try: try')
         axios.get(`http://localhost:8080/auth/insertMany`)
         .then(res => {
-            alert(`success: ${res.data.message}`)
+            alert(`success: ${res.data}`)
         })
         .catch(err => {
             alert(`fail: ${err}`)

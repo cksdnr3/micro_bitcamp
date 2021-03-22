@@ -4,6 +4,8 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+import javax.persistence.criteria.CriteriaBuilder.In;
+
 import org.springframework.stereotype.Component;
 
 import com.example.demo.bbs.domain.Article;
@@ -28,7 +30,7 @@ public class Proxy {
 	
 	public Consumer<String> print = System.out::print;
 	
-	public Function<Object, String> toString = String::valueOf;
+	public static Function<Object, String> toString = String::valueOf;
 	public Function<String, Integer> strToInteger = Integer::parseInt;
 	
 	public Function<Integer, Integer> intAbs = Math::abs;
@@ -39,10 +41,12 @@ public class Proxy {
 	public Function<Double, Double> ceil = Math::ceil;
 	public Function<Double, Double> floor = Math::floor;
 	
-	public BiFunction<Integer, Integer, Integer> intMax = (Integer f, Integer s) -> Math.max(f, s);
-	public BiFunction<Double, Double, Double> doubleMax = (Double f, Double s) -> Math.max(f, s);
-	public BiFunction<Long, Long, Long> longMax = (Long f, Long s) -> Math.max(f, s);
-	public BiFunction<Float, Float, Float> floatMax = (Float f, Float s) -> Math.max(f, s);
+	public BiFunction<Integer, Integer, Integer> intMax = (f, s) -> Math.max(f, s);
+	public BiFunction<Double, Double, Double> doubleMax = (f, s) -> Math.max(f, s);
+	public BiFunction<Long, Long, Long> longMax = (f, s) -> Math.max(f, s);
+	public BiFunction<Float, Float, Float> floatMax = (f, s) -> Math.max(f, s);
+	
+	public static BiFunction<Integer, Integer, Integer> rangeRandom = (f, s) -> (int)(Math.random() * (s - f)) + f + 1;
 	
 	public BiFunction<Integer, Integer, Integer> intMin = Math::min;
 	public BiFunction<Long, Long, Long> longMin = Math::min; 
