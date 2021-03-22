@@ -1,0 +1,11 @@
+package com.example.demo.bbs.service;
+
+import org.springframework.stereotype.Service;
+
+import com.example.demo.bbs.domain.Board;
+import com.example.demo.cmm.service.AbstractService;
+
+@Service
+public class BoardServiceImpl extends AbstractService<Board> implements BoardService{
+
+}

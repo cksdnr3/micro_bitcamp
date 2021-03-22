@@ -1,0 +1,17 @@
+package com.example.demo.uss.service;
+
+import java.util.Optional;
+
+import org.springframework.data.domain.Example;
+
+import com.example.demo.uss.domain.User;
+
+public interface UserService {
+	public Iterable<Long> findAll();
+	public long count();
+	public void deleteById(long id);
+	public boolean existsById(long id);
+	public Optional<Long> findById(long id);
+	public <User> Optional<User> findOne(Example<User> example);
+	public <User> User save(User entity);
+}
